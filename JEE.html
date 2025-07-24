@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Study Hub</title>
+  <style>
+	html {
+	scroll-behaviour: smooth; 
+	}
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f6fa;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    /* NAVBAR */
+    header {
+      background: #1e1e2f;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      color: #00e0a8;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: #00e0a8;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      background: linear-gradient(to right, #00e0a8, #0099ff);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    /* FEATURE CARDS */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+      transition: 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .card h3 {
+      color: #0099ff;
+    }
+
+    /* TRACKER SECTION */
+    .tracker {
+      background: #fff;
+      margin: 30px auto;
+      max-width: 400px;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      animation: slideUp 0.8s ease-in-out;
+    }
+    @keyframes slideUp {
+      from {transform: translateY(50px); opacity: 0;}
+      to {transform: translateY(0); opacity: 1;}
+    }
+    .clock {
+      font-size: 3rem;
+      margin: 15px 0;
+      color: #00e0a8;
+    }
+    .tracker button {
+      background: #0099ff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+    .tracker button:hover {
+      background: #0077cc;
+    }
+
+    /* TO-DO LIST */
+    .todo-container {
+      background: #fff;
+      max-width: 400px;
+      margin: 30px auto;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      animation: swipeUp 0.8s ease-in-out;
+    }
+    @keyframes swipeUp {
+      0% {transform: translateY(100%); opacity: 0;}
+      100% {transform: translateY(0); opacity: 1;}
+    }
+    .todo-container h3 {
+      margin-bottom: 10px;
+      color: #0099ff;
+      text-align: center;
+    }
+    .todo-container input {
+      width: 70%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .todo-container button {
+      padding: 8px 12px;
+      background: #00e0a8;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-left: 5px;
+    }
+    .todo-container ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 10px;
+    }
+    .todo-container li {
+      background: #f0f0f0;
+      padding: 8px;
+      margin: 5px 0;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .todo-container li button {
+      background: red;
+      padding: 4px 8px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #1e1e2f;
+      color: #ccc;
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 0.9rem;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <h1>Smart Study Hub</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="https://pdfdrive.com.co/" target="_blank">Notes</a>
+      <a href="https://www.aakash.ac.in/jee-main-previous-year-question-papers" target="_blank">PYQ's</a>
+      <a href="#tracker">Tracker</a>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <h2>Learn Smarter, Score Higher!</h2>
+    <p>Track your study time, plan your day, and boost productivity.</p>
+  </section>
+
+  <!-- FEATURE CARDS -->
+  <section class="features">
+    <div class="card">
+      <h3>📚 Free Study Material</h3>
+      <p>Download notes & PDFs for all subjects and keep learning anytime.</p>
+    </div>
+    <div class="card">
+      <h3>📝 Practice Tests</h3>
+      <p>Take chapter-wise & full-length tests with instant score analysis.</p>
+    </div>
+    <div class="card">
+      <h3>⏳ Study Tracker</h3>
+      <p>Track your daily study hours and stay focused with Pomodoro.</p>
+    </div>
+    <div class="card">
+      <h3>✅ To-Do List</h3>
+      <p>Plan your entire day and achieve your daily study goals.</p>
+    </div>
+  </section>
+
+  <!-- TRACKER -->
+  <div class="tracker" id="tracker">
+    <h3>Study Tracker</h3>
+    <div class="clock" id="clock">00:00:00</div>
+    <button onclick="startTimer()">Start</button>
+    <button onclick="stopTimer()">Stop</button>
+    <button onclick="startPomodoro()">Pomodoro (30m/5m)</button>
+  </div>
+
+  <!-- TO-DO LIST -->
+  <div class="todo-container">
+    <h3>📌 Today's Plan</h3>
+    <input type="text" id="todoInput" placeholder="Add your task...">
+    <button onclick="addTodo()">Add</button>
+    <ul id="todoList"></ul>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 Smart Study Hub | All Rights Reserved
+  </footer>
+
+  <script class="timer" id="timer">
+    // TIMER & TRACKER
+    let timer, seconds = 0;
+    function updateClock() {
+      let hrs = String(Math.floor(seconds / 3600)).padStart(2, '0');
+      let mins = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
+      let secs = String(seconds % 60).padStart(2, '0');
+      document.getElementById("clock").innerText = `${hrs}:${mins}:${secs}`;
+    }
+    function startTimer() {
+      clearInterval(timer);
+      timer = setInterval(() => {
+        seconds++;
+        updateClock();
+      }, 1000);
+    }
+    function stopTimer() {
+      clearInterval(timer);
+    }
+    function startPomodoro() {
+      alert("Pomodoro Started: 30 min study, then 5 min break!");
+      seconds = 0;
+      startTimer();
+      setTimeout(() => {
+        stopTimer();
+        alert("Take a 5-minute break!");
+      }, 30 * 60 * 1000); // 30 mins
+    }
+
+    // TO-DO LIST
+    function addTodo() {
+      let input = document.getElementById("todoInput");
+      if (input.value.trim() === "") return;
+      let li = document.createElement("li");
+      li.innerHTML = `${input.value} <button onclick="this.parentElement.remove()">X</button>`;
+      document.getElementById("todoList").appendChild(li);
+      input.value = "";
+    }
+  </script>
+</body>
+</html>
